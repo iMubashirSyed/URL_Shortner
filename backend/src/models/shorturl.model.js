@@ -7,7 +7,7 @@ const shortUrlSchema = new mongoose.Schema({
     },
     shortUrl: {
         type: String,
-        required: true,
+        // required: true,
         index: true,
         unique: true,
     },
