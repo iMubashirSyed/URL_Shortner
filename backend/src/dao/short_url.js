@@ -4,12 +4,11 @@ export const saveShortUrl = async (shortUrl, LongUrl, UserId) => {
   let newUrl = new UrlSchema({
     originalUrl: LongUrl,
     shortUrl: shortUrl,
+    user: UserId || null,
   });
-  if (UserId) {
-    newUrl.userId = UserId;
-  }
   console.log(newUrl);
-  newUrl.save();
+  console.log(UserId)
+  await newUrl.save();
 };
 
 export const getShortUrl = async (id) => {

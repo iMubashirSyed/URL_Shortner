@@ -9,7 +9,8 @@ export const registerUser = async (req, res) => {
 
 export const loginUser = async (req, res) => {
     const { email, password } = req.body;
-    const token = await LoginUser( email, password );
+    const {token, user} = await LoginUser( email, password );
+    req.user = user;
     res.cookie("Accepttoken", token, { httpOnly: true });
     res.send("User logged in");
 }
