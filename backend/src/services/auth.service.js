@@ -15,5 +15,5 @@ export const LoginUser = async (email, password) => {
     if (!user) throw new Error('User does not exist');
     if (user.password !== password) throw new Error('Invalid password');
     let token = SignToken({ id: user._id})
-    return token
+    return {token, user}
 }
